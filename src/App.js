@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
+import Category from './components/Categories/Category'
+import News from './components/News/News'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    render(){
+        return(
+            <div className="App">
+                <Category />
+                <News />
+            </div>
+           )
+    }
 }
 
-export default App;
+ const mapStateToProps=(state)=>{
+     const { Categorias:{ data: categories }} = state
+     //Esto agrega un alias a la propiedad de data dentro de Categorias
+ }
+const mapDispatchToProps=dispatch =>({
+
+})
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
